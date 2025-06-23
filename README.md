@@ -138,17 +138,17 @@ export async function deleteTodo(id: string) {
 ```
 
 ## How the App Works
-# Add Task
+### Add Task
 1. Type your task in the input box
 2. Click Add
 3. The task is saved in MongoDB
 
-# Update Task
+### Update Task
 1. Click a task from the list (loads into input)
 2. Edit the text
 3. Click Update to save changes
 
-# Delete Task
+### Delete Task
 1. Select a task
 2. Click Delete to remove it from the database
 
