@@ -26,12 +26,12 @@ A beginner-friendly full-stack Todo App using **React (with TypeScript)** for th
 ## Project Structure
 - my-todo-app/
   ├── app/
-  │ └── page.tsx # Main component
+  │ └── page.tsx **Main component**
   ├── lib/
-  │ └── function.ts # MongoDB functions (add, get, update, delete)
+  │ └── function.ts **MongoDB functions (add, get, update, delete)**
   ├── styles/
-  │ └── globals.css # Tailwind setup
-  ├── .env.local # MongoDB URI (secure)
+  │ └── globals.css **Tailwind setup**
+  ├── .env.local **MongoDB URI (secure)**
   ├── README.md
   └── ...
 
