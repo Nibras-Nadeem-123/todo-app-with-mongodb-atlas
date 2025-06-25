@@ -14,12 +14,13 @@ export async function getTodos() {
     id: todo._id.toString(),
     title: todo.title,
     completed: todo.completed,
+    image: todo.image
   }));
 }
 
-export async function addTodo(title: string) {
+export async function addTodo(title: string, image: string) {
 await client.connect() 
-  await collection.insertOne({ title, completed: false });
+  await collection.insertOne({ title ,image , completed: false });
     await client.close()
 }
 
@@ -29,8 +30,9 @@ await client.connect()
     await client.close()
 }
 
-export async function updateTodo(id: string, title: string) { 
+export async function updateTodo(id: string, title: string, image: string) { 
 await client.connect()
-  await collection.updateOne({ _id: new ObjectId(id) },{ $set: { title }});
+  await collection.updateOne({ _id: new ObjectId(id) },{ $set: { title, image }});
     await client.close()
 }
+ 
