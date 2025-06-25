@@ -54,7 +54,7 @@ const Home: React.FC = () => {
 
     // Update existing todo by ID
     const handleUpdate = async () => {
-        if (!task.trim() || !editId) return; 
+        if (!task.trim() || !editId) return;
 
         await updateTodo(editId, task, image);
         resetForm();
@@ -87,27 +87,27 @@ const Home: React.FC = () => {
     };
 
     return (
-        <div className="min-h-screen flex justify-center items-start bg-gray-100 p-6">
-            <div className="w-full max-w-2xl bg-white rounded-lg shadow-md p-6">
-                <h1 className="text-3xl font-bold mb-6 text-center text-gray-800">Todo App</h1>
+        <div className="min-h-screen bg-gray-100 flex justify-center p-4">
+            <div className="w-full max-w-3xl bg-white rounded-xl shadow-lg p-6">
+                <h1 className="text-3xl font-bold text-center mb-6 text-gray-800">Todo App</h1>
 
-                {/* Input section */}
-                <div className="flex gap-6 mb-3">
-                    <div>
+                {/* Input Section */}
+                <div className="flex flex-col md:flex-row md:items-start gap-4 mb-6">
+                    <div className="flex-1 w-full">
                         <input
                             value={task}
                             onChange={(e) => setTask(e.target.value)}
                             placeholder="Enter a task"
-                            className="flex-1 p-3 border w-[320px] h-[50px] border-gray-300 rounded-md mb-2"
+                            className="md:w-[310px] w-full h-[50px] p-3 border border-gray-300 rounded-md mb-3"
                         />
 
-                        <div className="flex justify-around gap-2">
+                        <div className="flex flex-col sm:flex-row gap-3">
                             <input
                                 type="file"
                                 accept="image/*"
                                 ref={fileInputRef}
                                 onChange={handleImageUpload}
-                                className="flex-1 p-3 border w-[180px] h-[50px] bg-purple-600 text-white rounded-md cursor-pointer"
+                                className="bg-purple-600 text-white rounded-md p-3 cursor-pointer w-full sm:w-[200px]"
                             />
                             <Image
                                 urlEndpoint="https://ik.imagekit.io/nkz2lvnjd"
@@ -115,36 +115,38 @@ const Home: React.FC = () => {
                                 width={100}
                                 height={100}
                                 alt="Todo image"
-                                className="rounded-md"
+                                className="rounded-md object-cover"
                             />
                         </div>
                     </div>
 
-                    <button
-                        onClick={handleAdd}
-                        className="px-4 py-2 bg-blue-600 text-white rounded-md"
-                    >
-                        Add
-                    </button>
+                    <div className="flex sm:flex-row flex-wrap gap-2 md:gap-3">
+                        <button
+                            onClick={handleAdd}
+                            className="bg-blue-600 text-white px-4 py-2 rounded-md w-full sm:w-auto"
+                        >
+                            Add
+                        </button>
 
-                    <button
-                        onClick={handleUpdate}
-                        disabled={!editId}
-                        className="bg-yellow-500 text-white px-4 py-2 rounded disabled:opacity-50"
-                    >
-                        Update
-                    </button>
+                        <button
+                            onClick={handleUpdate}
+                            disabled={!editId}
+                            className="bg-yellow-500 text-white px-4 py-2 rounded-md w-full sm:w-auto disabled:opacity-50"
+                        >
+                            Update
+                        </button>
 
-                    <button
-                        onClick={handleDelete}
-                        disabled={!editId}
-                        className="px-4 py-2 bg-red-500 text-white rounded-md disabled:opacity-50"
-                    >
-                        Delete
-                    </button>
+                        <button
+                            onClick={handleDelete}
+                            disabled={!editId}
+                            className="bg-red-500 text-white px-4 py-2 rounded-md w-full sm:w-auto disabled:opacity-50"
+                        >
+                            Delete
+                        </button>
+                    </div>
                 </div>
 
-                {/* Todo list */}
+                {/* Todo List */}
                 <ul className="space-y-3">
                     {todos.map((todo) => (
                         <li
@@ -159,9 +161,10 @@ const Home: React.FC = () => {
                                     width={100}
                                     height={100}
                                     alt="Todo image"
+                                    className="rounded-md object-cover"
                                 />
                             )}
-                            <span className="text-gray-700 break-all max-w-xs">{todo.title}</span>
+                            <span className="text-gray-700 break-words">{todo.title}</span>
                         </li>
                     ))}
                 </ul>
