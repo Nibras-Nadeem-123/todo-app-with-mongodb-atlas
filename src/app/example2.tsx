@@ -13,7 +13,7 @@ interface Todo {
   id: string;
   title: string;
   completed: boolean;
-  imageUrl: string;
+  image: string;
 }
 
 interface UploadImage {
@@ -66,7 +66,7 @@ const Home: React.FC = () => {
   const handleSelectTodo = (todo: Todo) => {
     setTask(todo.title);
     setEditId(todo.id);
-    setImage(todo.imageUrl);
+    setImage(todo.image);
   };
 
   const handleImageUpload = (result: unknown) => {
@@ -139,7 +139,7 @@ const Home: React.FC = () => {
           <CldImage
             width="60"
             height="60"
-            src={todo.imageUrl}
+            src={todo.image}
             alt="Todo"
             className="rounded border"
           />
